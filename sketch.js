@@ -129,8 +129,8 @@ nx.onload = function() {
 
 
 //TONE.JS EFFECTS
-var pingPong = new Tone.PingPongDelay("2n", 0.3).toMaster();
-pingPong.wet.value = 0.15;
+var pingPong = new Tone.PingPongDelay("2n", 0.1).toMaster();
+pingPong.wet.value = 0.2;
 
 
 
@@ -151,18 +151,29 @@ function preload() {
 
 
         },
-
         B: {
-            1: "./audio/cello/cello1.wav",
-            2: "./audio/cello/cello2.wav",
-            3: "./audio/cello/cello3.wav",
-            4: "./audio/cello/cello4.wav",
-            5: "./audio/cello/cello5.wav",
-            6: "./audio/cello/cello6.wav",
+            1: "./audio/violin/violin1.wav",
+            2: "./audio/violin/violin2.wav",
+            3: "./audio/violin/violin3.wav",
+            4: "./audio/violin/violin4.wav",
+            5: "./audio/violin/violin5.wav",
+            6: "./audio/violin/violin6.wav",
 
 
 
         },
+
+        // B: {
+        //     1: "./audio/cello/cello1.wav",
+        //     2: "./audio/cello/cello2.wav",
+        //     3: "./audio/cello/cello3.wav",
+        //     4: "./audio/cello/cello4.wav",
+        //     5: "./audio/cello/cello5.wav",
+        //     6: "./audio/cello/cello6.wav",
+        //
+        //
+        //
+        // },
         C: {
             1: "./audio/hang/hang1.wav",
             2: "./audio/hang/hang2.wav",
@@ -248,7 +259,7 @@ function preload() {
 
 
     // sampler.reverse = true;
-    sampler2.reverse = false;
+    sampler2.reverse = true;
 
     // GUITAR SAMPLER
     sampler3 = new Tone.Sampler({
@@ -263,7 +274,7 @@ function preload() {
 
 
         // },
-        A: {
+        D: {
             1: "./audio/guitar1/guitar1.wav",
             2: "./audio/guitar1/guitar2.wav",
             3: "./audio/guitar1/guitar3.wav",
@@ -296,7 +307,7 @@ function preload() {
 
 
         },
-        D: {
+        A: {
             1: "./audio/Strat/strat1.wav",
             2: "./audio/Strat/strat2.wav",
             3: "./audio/Strat/strat3.wav",
