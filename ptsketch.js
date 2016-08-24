@@ -135,7 +135,7 @@ space.add({
 
    },
   onMouseAction: function(type, x, y, evt) {
-    if (type=="drag") {
+    if (type=="move") {
       mouse.set(x,y);
       mouse2.set(x+10,y+10);
       mouse3.set(x+20,y-20);
