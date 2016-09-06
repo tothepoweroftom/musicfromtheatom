@@ -22,18 +22,25 @@ var sampler3;
 //UI ---------------------
 
 var toggle;
+
+
 //CircularSlider
 var slider;
+var slider2;
+var slider3;
 var buttonVid;
 var isPlaying = false;
 
-//
+//DIV Elements
 var sliderDiv;
 var sliderDiv2;
+var sliderDiv3;
 
-var sliderRad = 220;
-var margin = 30
-
+var sliderRad = 230;
+// var sliderRad2  = 300;
+// var sliderRad3 = 370;
+var margin = 30;
+var orbitWidth = 12;
 
 
 
@@ -49,7 +56,7 @@ var notes = ["A.1", "A.2", "A.3", "A.4", "A.5", "A.6",
 function Rectangle(_x, _y, _width, _height, _sample) {
     this.x = _x;
     this.y = _y;
-    this.theta = (atan2((_y - 4 * _height), (_x - 6 * _width)) * (180 / PI)) + 180;
+    this.theta = (atan2((_y - 2 * _height), (_x - 3 * _width)) * (180 / PI)) + 180;
     this.isOn = true;
     this.ring1 = true;
     this.ring2 = true;
@@ -60,12 +67,12 @@ function Rectangle(_x, _y, _width, _height, _sample) {
     // this.note = _note;
     this.counter = 10;
     this.display = function() {
-        noFill();
-        if (this.ring3) {
+      //  noFill();
+        if (this.ring1) {
             fill(255, 0, 0);
             rect(this.x, this.y, this.width, this.height);
         } else {
-            fill(255);
+            fill(0);
             rect(this.x, this.y, this.width, this.height);
         }
 
@@ -88,38 +95,93 @@ nx.onload = function() {
   nx.colorize("fill", "#000000");
 
   toggle1.colors.accent = "#17BEBB";
-
-
+  toggle1.val.value = 1;
+  toggle1.draw();
   toggle2.colors.accent = "#B0DB43";
+    toggle2.val.value = 0;
+      toggle2.draw();
   toggle3.colors.accent = "#D62246";
-  toggle3.val.value = 1;
+  toggle3.val.value = 0;
   toggle3.draw();
 
   toggle1.on('*', function(data){
 
-    console.log(data.value);
+  //  console.log(data.value);
     if(data.value === 1) {
+      //BOOLEANS
       arcToggle1 = true;
+      arcToggle2 = false;
+      arcToggle3 = false;
+//HIDE SHOW
+$("#slider").roundSlider("enable");
+$("#slider").fadeIn('slow');
+$("#slider2").hide(100).fadeOut('slow');
+$("#slider3").hide(100).fadeOut('slow');
+//TOGGLES
+toggle2.val.value = 0;
+toggle2.draw();
+toggle3.val.value = 0;
+toggle3.draw();
+
     } else if(data.value === 0){
       arcToggle1 = false;
+$("#slider").roundSlider("disable");
     }
   })
   toggle2.on('*', function(data){
 
-    console.log(data.value);
+  //  console.log(data.value);
     if(data.value === 1) {
+
+      //Booleans
       arcToggle2 = true;
+      arcToggle1 = false;
+      arcToggle3 = false;
+
+      //HIDE & SHOW
+      $("#slider2").roundSlider("enable");
+      $("#slider2").fadeIn('slow');
+      $("#slider").hide(100).fadeOut('slow');
+      $("#slider3").hide(100).fadeOut('slow');
+
+      //TOGGLES
+      toggle1.val.value = 0;
+      toggle1.draw();
+      toggle3.val.value = 0;
+      toggle3.draw();
+
     } else if(data.value === 0){
       arcToggle2 = false;
+      $("#slider2").roundSlider("disable");
+
     }
   })
   toggle3.on('*', function(data){
 
-    console.log(data.value);
+    // console.log(data.value);
     if(data.value === 1) {
+
+      //BOOLEANS
+      arcToggle1 = false;
+      arcToggle2 =false;
       arcToggle3 = true;
+
+      //HIDE & SHOW
+      $("#slider3").roundSlider("enable");
+      $("#slider3").fadeIn('slow');
+      $("#slider").hide(100).fadeOut("slow");
+      $("#slider2").hide(100).fadeOut("slow");
+
+      //TOGGLES
+      toggle1.val.value = 0;
+      toggle1.draw();
+      toggle2.val.value = 0;
+      toggle2.draw();
+
     } else if(data.value === 0){
       arcToggle3 = false;
+      $("#slider3").roundSlider("disable");
+
     }
   })
 
@@ -129,7 +191,7 @@ nx.onload = function() {
 
 
 //TONE.JS EFFECTS
-var pingPong = new Tone.PingPongDelay("2n", 0.1).toMaster();
+var pingPong = new Tone.PingPongDelay("2n", 0.3).toMaster();
 pingPong.wet.value = 0.2;
 
 
@@ -151,29 +213,18 @@ function preload() {
 
 
         },
+
         B: {
-            1: "./audio/violin/violin1.wav",
-            2: "./audio/violin/violin2.wav",
-            3: "./audio/violin/violin3.wav",
-            4: "./audio/violin/violin4.wav",
-            5: "./audio/violin/violin5.wav",
-            6: "./audio/violin/violin6.wav",
+            1: "./audio/cello/cello1.wav",
+            2: "./audio/cello/cello2.wav",
+            3: "./audio/cello/cello3.wav",
+            4: "./audio/cello/cello4.wav",
+            5: "./audio/cello/cello5.wav",
+            6: "./audio/cello/cello6.wav",
 
 
 
         },
-
-        // B: {
-        //     1: "./audio/cello/cello1.wav",
-        //     2: "./audio/cello/cello2.wav",
-        //     3: "./audio/cello/cello3.wav",
-        //     4: "./audio/cello/cello4.wav",
-        //     5: "./audio/cello/cello5.wav",
-        //     6: "./audio/cello/cello6.wav",
-        //
-        //
-        //
-        // },
         C: {
             1: "./audio/hang/hang1.wav",
             2: "./audio/hang/hang2.wav",
@@ -332,16 +383,16 @@ function preload() {
     }).connect(pingPong);
 
     //TURN DOWN THE VOLUME
-    sampler.volume.value = -4;
-    sampler2.volume.value = -12;
-    sampler3.volume.value = -10;
+    sampler.volume.value = -10;
+    sampler2.volume.value = -18;
+    sampler3.volume.value = -16;
 
     sampler.envelope.attack = 0.8;
     sampler2.envelope.attack = 0.8;
     sampler3.envelope.attack = 0.8;
-    // sampler.envelope.release = 0.2;
-    // sampler2.envelope.release = 0.1;
-    // sampler3.envelope.release = 0.1;
+    sampler.envelope.release = 0.5;
+    sampler2.envelope.release = 0.5;
+    sampler3.envelope.release = 0.5;
 }
 
 // function init() {
@@ -352,11 +403,68 @@ function preload() {
 
 function setup() {
     canvas = createCanvas(480, 320);
-    canvas.position(windowWidth / 2 - canvas.width / 2, 0);
+    canvas.position(windowWidth / 2 - canvas.width / 2, windowHeight/2-canvas.width/2);
 
     var toggle = document.getElementById('nexusControls');
     toggle.style.display = 'block';
 
+
+        //SLIDER DIV 1
+    sliderDiv = createDiv("");
+    sliderDiv.id("slider");
+    sliderDiv.class("rslider");
+    sliderDiv.position(windowWidth / 2 - sliderRad, windowHeight / 2 - sliderRad);
+
+    slider = $('#slider').roundSlider({
+      radius: sliderRad,
+      width: orbitWidth,
+      handleSize: "+25",
+      sliderType: "range",
+      max: "360",
+      value: "0,180",
+      showTooltip: "false",
+      change: "onValueChange1"
+    });
+
+//SLIDER DIV 2
+sliderDiv2 = createDiv("");
+sliderDiv2.id("slider2");
+sliderDiv2.class("rslider");
+sliderDiv2.position(windowWidth / 2 - sliderRad, windowHeight / 2 - sliderRad);
+
+slider2 = $('#slider2').roundSlider({
+  radius: sliderRad,
+  width: orbitWidth,
+  handleSize: "+25",
+  sliderType: "range",
+  max: "362",
+  //startAngle: "90",
+  value: "180, 270",
+  showTooltip: "false",
+  change: "onValueChange2"
+});
+$("#slider2").roundSlider("disable");
+$("#slider2").hide();
+
+
+//Slider Div 3
+sliderDiv3 = createDiv("");
+sliderDiv3.id("slider3");
+sliderDiv3.class("rslider");
+sliderDiv3.position(windowWidth / 2 - sliderRad, windowHeight / 2 - sliderRad);
+
+slider3 = $('#slider3').roundSlider({
+  radius: sliderRad,
+  width: orbitWidth,
+  handleSize: "+25",
+  sliderType: "range",
+  max: "360",
+  value: "90,270",
+  showTooltip: "false",
+  change: "onValueChange3"
+});
+$("#slider3").roundSlider("disable");
+$("#slider3").hide();
 
 
 
@@ -370,7 +478,7 @@ function setup() {
     vidDisplay.id("vidDisplay");
     video.loop();
     vidDisplay.loop();
-    //vidDisplay.hide();
+  //  vidDisplay.hide();
     video.size(480 / vscale, 320 / vscale);
     vidDisplay.size(640, 400);
     vidDisplay.position(windowWidth / 2 - vidDisplay.width / 2, windowHeight / 2 - vidDisplay.height / 2);
@@ -387,7 +495,7 @@ function setup() {
         for (var x = 0; x < video.width; x++) {
             var index = (x + (y * video.width));
             //console.log(index);
-            rects[index] = new Rectangle(x * vscale, y * vscale, vscale, vscale, notes[index % 23]);
+            rects[index] = new Rectangle(x * vscale*2, y * vscale*2, vscale*2, vscale*2, notes[index % 24]);
             //rects[index].display();
             //print("Theta = " + rects[index].theta);
         }
@@ -405,7 +513,7 @@ function windowResized() {
 function draw() {
     //background(255);
     video.loadPixels();
-    updateAngles();
+    //updateAngles();
 
     //loadPixels();
     for (var y = 0; y < video.height; y++) {
@@ -418,11 +526,13 @@ function draw() {
             var bright = (r + g + b) / 3;
 
 
+              //  rects[index/4].display();
 
             if (bright > 200 && rects[index / 4].ring1 === true && arcToggle1) {
 
                 sampler.triggerAttack(rects[index / 4].sample);
-                arcBlink(circle, points[0].angle(space.size.$divide(2)), points[1].angle(space.size.$divide(2)) );
+              //  slider.animate({ backgroundColor: '#FF69B4' }, 1000);
+
 
 
 
@@ -431,23 +541,16 @@ function draw() {
             if (bright > 200 && rects[index / 4].ring2 === true && arcToggle2) {
 
                 sampler2.triggerAttack(rects[index / 4].sample);
-                arcBlink(circle2, points[2].angle(space.size.$divide(2)), points[3].angle(space.size.$divide(2)) );
 
 
             }
             if (bright > 200 && rects[index / 4].ring3 === true && arcToggle3) {
 
                 sampler3.triggerAttack(rects[index / 4].sample);
-                arcBlink(circle3, points[4].angle(space.size.$divide(2)), points[5].angle(space.size.$divide(2)) );
 
 
             }
-            if (bright > 150) {
-              // space.add( new Dust(x*(windowWidth/video.width) + rand(10), 100+y*(windowHeight/video.height)+rand(10) ) );
-              // space.add( new Dust(x*(windowWidth/video.width) + rand(100), 50+y*(windowHeight/video.height)+rand(10) ) );
-              // space.add( new Dust(x*(windowWidth/video.width) + rand(50), 100+y*(windowHeight/video.height)+rand(10) ) );
-              // space.add( new Dust(x*(windowWidth/video.width) + rand(40), 10+y*(windowHeight/video.height)+rand(10) ) );
-            }
+
 
 
 
@@ -475,106 +578,79 @@ function videoPlay() {
 
 }
 
-function updateAngles() {
-    if (points[0] && points[1]) {
-        var min = points[0].angle(spaceSize) * 180 / PI + 180;
-        var max = points[1].angle(spaceSize) * 180 / PI + 180;
-        //
-        // var diff = abs(max-min);
-        // console.log("diff= " + diff);
-        // sampler.volume.value = map(diff, 0,360, -20, -5);
+function onValueChange1(e){
 
 
-        for (var y = 0; y < 8; y++) {
-            for (var x = 0; x < 12; x++) {
-                var index = (x + (y * 12));
-                if (max > min) {
-                    if (rects[index].theta <= max && rects[index].theta >= min) {
-                        rects[index].ring1 = true;
-                        //  console.log(rects[index].isOn);
-                    } else {
-                        rects[index].ring1 = false;
-                    }
-                }
+  var array = e.value.split(',');
+  var max = parseInt(array[1]);
+  var min = parseInt(array[0]);
+  points[0] = min;
+  points[1] = max;
 
-            }
-        }
-    } else {
-      for (var y = 0; y < 8; y++) {
-          for (var x = 0; x < 12; x++) {
-              var index = (x + (y * 12));
-                      rects[index].ring1 = false;
-                  }
-              }
+//  console.log("max = " + max + " min = " + min);
 
-          }
+  for (var y = 0; y < 8; y++) {
+    for (var x = 0; x < 12; x++) {
+      var index = (x + (y * 12));
+      if(rects[index].theta <= max && rects[index].theta >= min){
+        rects[index].ring1 = true;
+      } else {
+        rects[index].ring1 = false;
+      }
+    }
+  }
 
 
-    if (points[2] && points[3]) {
-        var min2 = points[2].angle(spaceSize) * 180 / PI + 180;
-        var max2 = points[3].angle(spaceSize) * 180 / PI + 180;
-        //
-        //
-        // var diff2 = abs(max2 - min2);
-        // sampler2.volume.value = map(diff2, 0,360, -20, -5);
-
-        for (var y = 0; y < 8; y++) {
-            for (var x = 0; x < 12; x++) {
-                var index = (x + (y * 12));
-                if (max2 > min2) {
-                    if (rects[index].theta <= max2 && rects[index].theta >= min2) {
-                        rects[index].ring2 = true;
-                        //  console.log(rects[index].isOn);
-                    } else {
-                        rects[index].ring2 = false;
-                    }
-                }
-            }
-        }
+}
+function onValueChange2(e){
 
 
-    } else {
-      for (var y = 0; y < 8; y++) {
-          for (var x = 0; x < 12; x++) {
-              var index = (x + (y * 12));
-                      rects[index].ring2 = false;
-                  }
-              }
+  var array = e.value.split(',');
+  var max = parseInt(array[1]);
+  var min = parseInt(array[0]);
+  points[2] = min;
+  points[3] = max;
 
-          }
+//  console.log("max = " + max + " min = " + min);
 
-    if (points[4] && points[5]) {
-        //console.log("Theta Min = " + points[0].angle(spaceSize)*180/PI + " Theta Max = " + points[1].angle(spaceSize)*180/PI);
-        var min3 = points[4].angle(spaceSize) * 180 / PI + 180;
-        var max3 = points[5].angle(spaceSize) * 180 / PI + 180;
-
-        // var diff3 = abs(max3 - min3);
-        // sampler3.volume.value = map(diff3, 0,360, -20, -5);
-
-
-
-        for (var y = 0; y < 8; y++) {
-            for (var x = 0; x < 12; x++) {
-                var index = (x + (y * 12));
-                if (max3 > min3) {
-                    if (rects[index].theta <= max3 && rects[index].theta >= min3) {
-                        rects[index].ring3 = true;
-                        //  console.log("ring3 " + rects[index].ring3);
-                    } else {
-                        rects[index].ring3 = false;
-                    }
-                }
-            }
-        }
+  for (var y = 0; y < 8; y++) {
+    for (var x = 0; x < 12; x++) {
+      var index = (x + (y * 12));
+      if(rects[index].theta <= max && rects[index].theta >= min){
+        rects[index].ring2 = true;
+      } else {
+        rects[index].ring2 = false;
+      }
+    }
+  }
 
 
-    } else {
-      for (var y = 0; y < 8; y++) {
-          for (var x = 0; x < 12; x++) {
-              var index = (x + (y * 12));
-                      rects[index].ring3 = false;
-                  }
-              }
+}
+function onValueChange3(e){
 
-          }
+
+  var array = e.value.split(',');
+  var max = parseInt(array[1]);
+  var min = parseInt(array[0]);
+  points[4] = min;
+  points[5] = max;
+
+//  console.log("max = " + max + " min = " + min);
+
+  for (var y = 0; y < 8; y++) {
+    for (var x = 0; x < 12; x++) {
+      var index = (x + (y * 12));
+      if(rects[index].theta <= max && rects[index].theta >= min){
+        rects[index].ring3 = true;
+      } else {
+        rects[index].ring3 = false;
+      }
+    }
+  }
+
+
+}
+function changeColor(id){
+var targetDiv = document.getElementById(id).getElementsByClassName("slider rs-range-color");
+targetDiv.style.backgroundColor = 'white';
 }
