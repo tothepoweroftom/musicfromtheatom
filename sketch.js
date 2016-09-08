@@ -383,9 +383,9 @@ function preload() {
     }).connect(pingPong);
 
     //TURN DOWN THE VOLUME
-    sampler.volume.value = -10;
-    sampler2.volume.value = -18;
-    sampler3.volume.value = -16;
+    sampler.volume.value = -7;
+    sampler2.volume.value = -15;
+    sampler3.volume.value = -12;
 
     sampler.envelope.attack = 0.8;
     sampler2.envelope.attack = 0.8;
