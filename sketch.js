@@ -203,46 +203,46 @@ function preload() {
     //ACOUSTIC SAMPLER
     sampler = new Tone.Sampler({
         A: {
-            1: "./audio/piano/piano1.mp3",
-            2: "./audio/piano/piano2.mp3",
-            3: "./audio/piano/piano3.mp3",
-            4: "./audio/piano/piano4.mp3",
-            5: "./audio/piano/piano5.mp3",
-            6: "./audio/piano/piano6.mp3",
+            1: "./audio/piano/piano1.wav",
+            2: "./audio/piano/piano2.wav",
+            3: "./audio/piano/piano3.wav",
+            4: "./audio/piano/piano4.wav",
+            5: "./audio/piano/piano5.wav",
+            6: "./audio/piano/piano6.wav",
 
 
 
         },
 
         B: {
-            1: "./audio/cello/cello1.mp3",
-            2: "./audio/cello/cello2.mp3",
-            3: "./audio/cello/cello3.mp3",
-            4: "./audio/cello/cello4.mp3",
-            5: "./audio/cello/cello5.mp3",
-            6: "./audio/cello/cello6.mp3",
+            1: "./audio/cello/cello1.wav",
+            2: "./audio/cello/cello2.wav",
+            3: "./audio/cello/cello3.wav",
+            4: "./audio/cello/cello4.wav",
+            5: "./audio/cello/cello5.wav",
+            6: "./audio/cello/cello6.wav",
 
 
 
         },
         C: {
-            1: "./audio/hang/hang1.mp3",
-            2: "./audio/hang/hang2.mp3",
-            3: "./audio/hang/hang3.mp3",
-            4: "./audio/hang/hang4.mp3",
-            5: "./audio/hang/hang5.mp3",
-            6: "./audio/hang/hang6.mp3",
+            1: "./audio/hang/hang1.wav",
+            2: "./audio/hang/hang2.wav",
+            3: "./audio/hang/hang3.wav",
+            4: "./audio/hang/hang4.wav",
+            5: "./audio/hang/hang5.wav",
+            6: "./audio/hang/hang6.wav",
 
 
 
         },
         D: {
-            1: "./audio/violin/violin1.mp3",
-            2: "./audio/violin/violin2.mp3",
-            3: "./audio/violin/violin3.mp3",
-            4: "./audio/violin/violin4.mp3",
-            5: "./audio/violin/violin5.mp3",
-            6: "./audio/violin/violin6.mp3",
+            1: "./audio/violin/violin1.wav",
+            2: "./audio/violin/violin2.wav",
+            3: "./audio/violin/violin3.wav",
+            4: "./audio/violin/violin4.wav",
+            5: "./audio/violin/violin5.wav",
+            6: "./audio/violin/violin6.wav",
 
 
 
@@ -252,56 +252,56 @@ function preload() {
     //ELECTRONIC SAMPLER
     sampler2 = new Tone.Sampler({
         A: {
-            1: "./audio/beatz/beat_1.mp3",
-            2: "./audio/beatz/beat_2.mp3",
-            3: "./audio/beatz/beat_3.mp3",
-            4: "./audio/beatz/beat_4.mp3",
-            5: "./audio/beatz/beat_5.mp3",
-            6: "./audio/beatz/beat_6.mp3",
+            1: "./audio/beatz/beat_1.wav",
+            2: "./audio/beatz/beat_2.wav",
+            3: "./audio/beatz/beat_3.wav",
+            4: "./audio/beatz/beat_4.wav",
+            5: "./audio/beatz/beat_5.wav",
+            6: "./audio/beatz/beat_6.wav",
 
 
 
         },
         B: {
-            1: "./audio/synth/synth_1.mp3",
-            2: "./audio/synth/synth_2.mp3",
-            3: "./audio/synth/synth_3.mp3",
-            4: "./audio/synth/synth_4.mp3",
-            5: "./audio/synth/synth_5.mp3",
-            6: "./audio/synth/synth_6.mp3",
+            1: "./audio/synth/synth_1.wav",
+            2: "./audio/synth/synth_2.wav",
+            3: "./audio/synth/synth_3.wav",
+            4: "./audio/synth/synth_4.wav",
+            5: "./audio/synth/synth_5.wav",
+            6: "./audio/synth/synth_6.wav",
 
 
 
         },
         // D: {
-        //   1: "./audio/synthBass/bass_1.mp3",
-        //   2: "./audio/synthBass/bass_2.mp3",
-        //   3: "./audio/synthBass/bass_3.mp3",
-        //   4: "./audio/synthBass/bass_4.mp3",
-        //   5: "./audio/synthBass/bass_5.mp3",
-        //   6: "./audio/synthBass/bass_6.mp3",
+        //   1: "./audio/synthBass/bass_1.wav",
+        //   2: "./audio/synthBass/bass_2.wav",
+        //   3: "./audio/synthBass/bass_3.wav",
+        //   4: "./audio/synthBass/bass_4.wav",
+        //   5: "./audio/synthBass/bass_5.wav",
+        //   6: "./audio/synthBass/bass_6.wav",
 
 
 
 
         C: {
-            1: "./audio/space/space1.mp3",
-            2: "./audio/space/space2.mp3",
-            3: "./audio/space/space3.mp3",
-            4: "./audio/space/space4.mp3",
-            5: "./audio/space/space5.mp3",
-            6: "./audio/space/space6.mp3",
+            1: "./audio/space/space1.wav",
+            2: "./audio/space/space2.wav",
+            3: "./audio/space/space3.wav",
+            4: "./audio/space/space4.wav",
+            5: "./audio/space/space5.wav",
+            6: "./audio/space/space6.wav",
 
 
 
         },
         D: {
-            1: "./audio/choirElec/choir_1.mp3",
-            2: "./audio/choirElec/choir_2.mp3",
-            3: "./audio/choirElec/choir_3.mp3",
-            4: "./audio/choirElec/choir_4.mp3",
-            5: "./audio/choirElec/choir_5.mp3",
-            6: "./audio/choirElec/choir_6.mp3",
+            1: "./audio/choirElec/choir_1.wav",
+            2: "./audio/choirElec/choir_2.wav",
+            3: "./audio/choirElec/choir_3.wav",
+            4: "./audio/choirElec/choir_4.wav",
+            5: "./audio/choirElec/choir_5.wav",
+            6: "./audio/choirElec/choir_6.wav",
 
 
 
@@ -315,67 +315,67 @@ function preload() {
     // GUITAR SAMPLER
     sampler3 = new Tone.Sampler({
         // A: {
-        //   1: "./audio/drum/drum1.mp3",
-        //   2: "./audio/drum/drum2.mp3",
-        //   3: "./audio/drum/drum3.mp3",
-        //   4: "./audio/drum/drum4.mp3",
-        //   5: "./audio/drum/drum5.mp3",
-        //   6: "./audio/drum/drum6.mp3",
+        //   1: "./audio/drum/drum1.wav",
+        //   2: "./audio/drum/drum2.wav",
+        //   3: "./audio/drum/drum3.wav",
+        //   4: "./audio/drum/drum4.wav",
+        //   5: "./audio/drum/drum5.wav",
+        //   6: "./audio/drum/drum6.wav",
 
 
 
         // },
         D: {
-            1: "./audio/guitar1/guitar1.mp3",
-            2: "./audio/guitar1/guitar2.mp3",
-            3: "./audio/guitar1/guitar3.mp3",
-            4: "./audio/guitar1/guitar4.mp3",
-            5: "./audio/guitar1/guitar5.mp3",
-            6: "./audio/guitar1/guitar6.mp3",
+            1: "./audio/guitar1/guitar1.wav",
+            2: "./audio/guitar1/guitar2.wav",
+            3: "./audio/guitar1/guitar3.wav",
+            4: "./audio/guitar1/guitar4.wav",
+            5: "./audio/guitar1/guitar5.wav",
+            6: "./audio/guitar1/guitar6.wav",
 
 
 
         },
         B: {
-            1: "./audio/guitar2/guitar1.mp3",
-            2: "./audio/guitar2/guitar2.mp3",
-            3: "./audio/guitar2/guitar3.mp3",
-            4: "./audio/guitar2/guitar4.mp3",
-            5: "./audio/guitar2/guitar5.mp3",
-            6: "./audio/guitar2/guitar6.mp3",
+            1: "./audio/guitar2/guitar1.wav",
+            2: "./audio/guitar2/guitar2.wav",
+            3: "./audio/guitar2/guitar3.wav",
+            4: "./audio/guitar2/guitar4.wav",
+            5: "./audio/guitar2/guitar5.wav",
+            6: "./audio/guitar2/guitar6.wav",
 
 
 
         },
         C: {
-            1: "./audio/Bass/bass1.mp3",
-            2: "./audio/Bass/bass2.mp3",
-            3: "./audio/Bass/bass3.mp3",
-            4: "./audio/Bass/bass4.mp3",
-            5: "./audio/Bass/bass5.mp3",
-            6: "./audio/Bass/bass6.mp3",
+            1: "./audio/Bass/bass1.wav",
+            2: "./audio/Bass/bass2.wav",
+            3: "./audio/Bass/bass3.wav",
+            4: "./audio/Bass/bass4.wav",
+            5: "./audio/Bass/bass5.wav",
+            6: "./audio/Bass/bass6.wav",
 
 
 
         },
         A: {
-            1: "./audio/Strat/strat1.mp3",
-            2: "./audio/Strat/strat2.mp3",
-            3: "./audio/Strat/strat3.mp3",
-            4: "./audio/Strat/strat4.mp3",
-            5: "./audio/Strat/strat5.mp3",
-            6: "./audio/Strat/strat6.mp3",
+            1: "./audio/Strat/strat1.wav",
+            2: "./audio/Strat/strat2.wav",
+            3: "./audio/Strat/strat3.wav",
+            4: "./audio/Strat/strat4.wav",
+            5: "./audio/Strat/strat5.wav",
+            6: "./audio/Strat/strat6.wav",
 
 
 
         }
         // C: {
-        //   1: "./audio/space/space1.mp3",
-        //   2: "./audio/space/space2.mp3",
-        //   3: "./audio/space/space3.mp3",
-        //   4: "./audio/space/space4.mp3",
-        //   5: "./audio/space/space5.mp3",
-        //   6: "./audio/space/space6.mp3",
+        //   1: "./audio/space/space1.wav",
+        //   2: "./audio/space/space2.wav",
+        //   3: "./audio/space/space3.wav",
+        //   4: "./audio/space/space4.wav",
+        //   5: "./audio/space/space5.wav",
+        //   6: "./audio/space/space6.wav",
 
 
 
